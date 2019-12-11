@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStackNavigator, createAppNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack'
+import { createAppContainer } from 'react-navigation';
 import Main from '../app/Main'
 import AddTask from '../app/AddTask.js'
 
@@ -17,6 +18,6 @@ const StackNav = createStackNavigator(
     }
 )
 
-const RootNavigator = createAppContainer(Stacknav)
+const RootNavigator = createAppContainer(StackNav)
 
 export default RootNavigator

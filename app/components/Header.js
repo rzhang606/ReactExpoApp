@@ -1,20 +1,14 @@
-import React from 'react';
-import {View, Text, StyleSheet } from 'react-native';
-const Header = ({ title }) => (
-    <View style={styles.headerContainer}>
-        <Text style={styles.headerText}> {title.toUpperCase()} </Text>
-    </View>
-);
+import React from 'react'
+import { Header as NBHeader, Body, Title } from 'native-base'
 
-const styles = StyleSheet.create({
-    headerContainer: {
-        marginTop: 40
-    },
-    headerText: {
-        color: 'white',
-        fontSize: 22,
-        fontWeight: '500'
-    }
-});
+const Header = () => {
+	return (
+		<NBHeader style={{ backgroundColor: '#5859f2' }}>
+			<Body>
+				<Title style={{ color: '#ffffff' }}>Header</Title>
+			</Body>
+		</NBHeader>
+	)
+}
 
-export default Header;
+export default Header

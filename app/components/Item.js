@@ -45,7 +45,7 @@ const Item = ({inCompleteTodo, completeTodo, textValue, id, deleteTodo, isComple
 
 const styles = StyleSheet.create({
     container: {
-        borderBottomColor: '5859f2',
+        borderBottomColor: '#5859f2',
         borderBottomWidth: StyleSheet.hairlineWidth,
         flexDirection: 'row',
         alignItems: 'center',
