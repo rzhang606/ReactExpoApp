@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 	button: {
 		backgroundColor: '#5859f2'
 	}
-})  
+})
 
 export default FloatingButton
 

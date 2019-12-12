@@ -149,14 +149,10 @@ export class HomeScreen extends Component {
 				<StatusBar barStyle='light-content' />
 				<View style={styles.contentHeader}>
 					<Segment style={{ backgroundColor: '#ffffff' }}>
-						<Button active={filter === 'Todo'} onPress={() => this.setState({ filter: 'Todo' })}>
+						<Button bordered active={filter === 'Todo'} onPress={() => this.setState({ filter: 'Todo' })}>
 							<NBText>Todo</NBText>
 						</Button>
-						<Button
-							last
-							active={filter === 'Complete'}
-							onPress={() => this.setState({ filter: 'Complete' })}
-						>
+						<Button bordered last active={filter === 'Complete'} onPress={() => this.setState({ filter: 'Complete' })} >
 							<NBText>Complete</NBText>
 						</Button>
 					</Segment>

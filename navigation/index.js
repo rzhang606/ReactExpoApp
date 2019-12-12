@@ -14,7 +14,7 @@ const StackNav = createStackNavigator(
         }
     },
     {
-        mode: 'modal'
+        mode: 'card'
     }
 )
 
