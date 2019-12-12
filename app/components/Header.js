@@ -3,9 +3,9 @@ import { Header as NBHeader, Body, Title } from 'native-base'
 
 const Header = () => {
 	return (
-		<NBHeader style={{ backgroundColor: '#5859f2' }}>
-			<Body>
-				<Title style={{ color: '#ffffff' }}>Header</Title>
+		<NBHeader hasSegment style={{ backgroundColor: '#5859f2'}}>
+			<Body >
+				<Title style={{ color: '#ffffff' }}>To - Do List</Title>
 			</Body>
 		</NBHeader>
 	)

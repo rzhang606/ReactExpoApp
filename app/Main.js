@@ -146,19 +146,20 @@ export class HomeScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<Header />
-				<StatusBar barStyle='light-content' />
+				{/* <StatusBar barStyle='light-content' /> */}
 				<View style={styles.contentHeader}>
-					<Segment style={{ backgroundColor: '#ffffff' }}>
-						<Button bordered active={filter === 'Todo'} onPress={() => this.setState({ filter: 'Todo' })}>
+					<Segment style={{ backgroundColor: '#5859f2' }}>
+						<Button first active={filter === 'Todo'} onPress={() => this.setState({ filter: 'Todo' })}>
 							<NBText>Todo</NBText>
 						</Button>
-						<Button bordered last active={filter === 'Complete'} onPress={() => this.setState({ filter: 'Complete' })} >
+						<Button last active={filter === 'Complete'} onPress={() => this.setState({ filter: 'Complete' })} >
 							<NBText>Complete</NBText>
 						</Button>
 					</Segment>
 				</View>
 				<FlatList
 					data={_values(this.filteredItems())}
+					ListEmptyComponent={this._listEmptyComponent}
 					contentContainerStyle={styles.content}
 					renderItem={row => {
 						return (
@@ -178,6 +179,14 @@ export class HomeScreen extends Component {
 			</View>
 		)
 	}
+
+	_listEmptyComponent = () => {
+		return (
+			<View>
+				<NBText style={styles.textStyle}>Nothing to show!</NBText>
+			</View>
+		)
+	}
 }
 
 const styles = StyleSheet.create({
@@ -189,8 +198,14 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch'
 	},
 	contentHeader: {
-		alignItems: 'center',
+		alignItems: 'stretch',
 		justifyContent: 'center'
+	},
+	textStyle: {
+		color: '#4F50DC',
+        fontSize: 18,
+        marginVertical: 20,
+        paddingLeft:  10
 	}
 })
 
