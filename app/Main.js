@@ -39,6 +39,8 @@ export class HomeScreen extends Component {
 		}
 	}
 
+	//Sets the storage with the new todo item
+	//Accessed from AddTask, passed through with onPressFab()
 	addTodo = newTask => {
 		const newTodoItem = newTask
 
@@ -113,6 +115,7 @@ export class HomeScreen extends Component {
 		})
 	}
 
+	//Saves todos to the storage
 	saveTodos = newToDos => {
 		const saveTodos = AsyncStorage.setItem('todos', JSON.stringify(newToDos))
 	}
@@ -123,6 +126,7 @@ export class HomeScreen extends Component {
 		})
 	}
 
+	//Returns all items of either completed or todo
 	filteredItems = () => {
 		if (this.state.filter === 'Todo') {
 			return _values(this.state.todos).filter(i => {

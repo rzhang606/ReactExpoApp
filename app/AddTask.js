@@ -11,6 +11,7 @@ export class AddTask extends Component {
 		this.setState({ task: event.nativeEvent.text })
 	}
 
+	//Saves the item from the function passed through by main, then goes back
 	onAddTask = () => {
 		this.props.navigation.state.params.saveItem(this.state.task)
 		this.props.navigation.goBack()
