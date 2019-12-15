@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, View, StatusBar, StyleSheet, AsyncStorage } from 'react-native'
+import { FlatList, View, StyleSheet, AsyncStorage } from 'react-native'
 import uuidv1 from 'uuid/v1'
 import _values from 'lodash.values'
 import { Button, Text as NBText, Segment } from 'native-base'
@@ -68,6 +68,7 @@ export class HomeScreen extends Component {
 		}
 	}
 
+	//Completely Delete a todo
 	deleteTodo = id => {
 		this.setState(prevState => {
 			const todos = prevState.todos
@@ -81,6 +82,7 @@ export class HomeScreen extends Component {
 		})
 	}
 
+	//Set todo item as incomplete
 	inCompleteTodo = id => {
 		this.setState(prevState => {
 			const newState = {
@@ -98,6 +100,7 @@ export class HomeScreen extends Component {
 		})
 	}
 
+	//Adds a todo to the completed list
 	completeTodo = id => {
 		this.setState(prevState => {
 			const newState = {
@@ -120,6 +123,7 @@ export class HomeScreen extends Component {
 		const saveTodos = AsyncStorage.setItem('todos', JSON.stringify(newToDos))
 	}
 
+	//Navigation for the add task fab
 	onPressFab = () => {
 		this.props.navigation.navigate('AddTask', {
 			saveItem: this.addTodo
