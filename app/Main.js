@@ -8,6 +8,7 @@ import * as Font from 'expo-font'
 import Header from './components/Header'
 import Item from './components/Item'
 import FloatingButton from './components/Button'
+import AccordionCustom from './components/AccordionCustom'
 
 export class HomeScreen extends Component {
 	static navigationOptions = {
@@ -41,7 +42,7 @@ export class HomeScreen extends Component {
 
 	//Sets the storage with the new todo item
 	//Accessed from AddTask, passed through with onPressFab()
-	addTodo = newTask => {
+	addTodo = (newTask, category) => {
 		const newTodoItem = newTask
 
 		if (newTodoItem !== '') {
@@ -51,6 +52,7 @@ export class HomeScreen extends Component {
 					[ID]: {
 						id: ID,
 						isCompleted: false,
+						category: category,
 						textValue: newTodoItem,
 						createdAt: Date.now()
 					}
@@ -154,7 +156,6 @@ export class HomeScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<Header />
-				{/* <StatusBar barStyle='light-content' /> */}
 				<View style={styles.contentHeader}>
 					<Segment style={{ backgroundColor: '#5859f2' }}>
 						<Button first active={filter === 'Todo'} onPress={() => this.setState({ filter: 'Todo' })}>
@@ -165,33 +166,13 @@ export class HomeScreen extends Component {
 						</Button>
 					</Segment>
 				</View>
-				<FlatList
+				<AccordionCustom 
 					data={_values(this.filteredItems())}
-					ListEmptyComponent={this._listEmptyComponent}
-					contentContainerStyle={styles.content}
-					renderItem={row => {
-						return (
-							<Item
-								isCompleted={row.item.isCompleted}
-								textValue={row.item.textValue}
-								id={row.item.id}
-								deleteTodo={this.deleteTodo}
-								completeTodo={this.completeTodo}
-								inCompleteTodo={this.inCompleteTodo}
-							/>
-						)
-					}}
-					keyExtractor={item => item.id}
+					deleteTodo={this.deleteTodo}
+					completeTodo={this.completeTodo}
+					inCompleteTodo={this.inCompleteTodo}
 				/>
 				<FloatingButton actionOnPress={this.onPressFab} />
-			</View>
-		)
-	}
-
-	_listEmptyComponent = () => {
-		return (
-			<View>
-				<NBText style={styles.textStyle}>Nothing to show!</NBText>
 			</View>
 		)
 	}

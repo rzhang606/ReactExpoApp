@@ -4,16 +4,21 @@ import { Form, Item, Input, Button, Text as NBText } from 'native-base'
 
 export class AddTask extends Component {
 	state = {
-		text: ''
+		text: '',
+		category: ''
 	}
 
-	onChangeText = event => {
+	onTaskChange = event => {
 		this.setState({ task: event.nativeEvent.text })
+	}
+
+	onCategoryChange = event => {
+		this.setState({ category: event.nativeEvent.text })
 	}
 
 	//Saves the item from the function passed through by main, then goes back
 	onAddTask = () => {
-		this.props.navigation.state.params.saveItem(this.state.task)
+		this.props.navigation.state.params.saveItem(this.state.task, this.state.category)
 		this.props.navigation.goBack()
 	}
 
@@ -29,9 +34,17 @@ export class AddTask extends Component {
 								autoFocus
 								clearButtonMode='always'
 								autoCorrect={false}
-								onChange={this.onChangeText}
-								onSubmitEditing={this.onAddTask}
-								returnKeyType={'done'}
+								onChange={this.onTaskChange}
+							/>
+						</Item>
+						<Item>
+							<Input
+								placeholder='Enter a category (default none)'
+								value={this.state.category}
+								autoFocus
+								clearButtonMode='always'
+								autoCorrect={false}
+								onChange={this.onCategoryChange}
 							/>
 						</Item>
 					</Form>
