@@ -41,7 +41,7 @@ export class HomeScreen extends Component {
 
 	//Sets the storage with the new todo item
 	//Accessed from AddTask, passed through with onPressFab()
-	addTodo = newTask => {
+	addTodo = (newTask, category) => {
 		const newTodoItem = newTask
 
 		if (newTodoItem !== '') {
@@ -51,6 +51,7 @@ export class HomeScreen extends Component {
 					[ID]: {
 						id: ID,
 						isCompleted: false,
+						category: category,
 						textValue: newTodoItem,
 						createdAt: Date.now()
 					}

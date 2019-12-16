@@ -4,7 +4,7 @@ import { Icon } from 'native-base'
 
 const {width} = Dimensions.get('window')
 
-const Item = ({inCompleteTodo, completeTodo, textValue, id, deleteTodo, isCompleted}) => {
+const Item = ({inCompleteTodo, completeTodo, textValue, id, deleteTodo, isCompleted, category}) => {
     toggleItem = () => {
         if (isCompleted) {
             inCompleteTodo(id)
